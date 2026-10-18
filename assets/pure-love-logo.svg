@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Placeholder logo">
+  <circle cx="100" cy="100" r="100" fill="#f6f7fb"/>
+  <path d="M100 150 C52 114 52 70 82 64 C92 62 98 68 100 74 C102 68 108 62 118 64 C148 70 148 114 100 150 Z" fill="none" stroke="#a78bfa" stroke-width="5" stroke-linejoin="round"/>
+  <text x="100" y="178" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#586071">YOUR LOGO HERE</text>
+</svg>
