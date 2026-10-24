@@ -24,7 +24,7 @@
       "Your power was never truly outside you. Beyond societal expectations, external authority, and limiting beliefs, there is a world within you waiting to be seen, understood, and expressed. Reconnect with yourself, reclaim your voice, and discover the beauty of being understood without having to become someone else."
     ],
     cta: "Enter World Within",
-    linkKey: "worldWithin",
+    linkKey: "world-within",
     image: ""
   };
 })();
