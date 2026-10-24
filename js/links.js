@@ -12,10 +12,10 @@
     // Your feedback form (Google Form, Typeform, etc.)
     feedback: "",
     // The Starseed website
-    starseed: "",
+    starseed: "https://seenthroughvisuals97creatives-oss.github.io/Ancient-Divinity/#story",
     // The World Within page
-    worldWithin: "",
+    worldWithin: "https://97divegentspirit-collab.github.io/world-within/index.html",
     // Pure Love Network of States website
-    community: ""
+    community: "https://pure-love-network.carrd.co/"
   };
 })();
