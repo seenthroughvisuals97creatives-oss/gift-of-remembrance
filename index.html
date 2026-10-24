@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Gift of Remembrance</title>
+  <meta name="description" content="A free online session for well-being. A moment to pause, reflect, and reconnect.">
+
+  <!-- SHARE PREVIEW: this is the picture and caption that appear when the link is shared.
+       After you publish the site, change og:image and og:url to the full web addresses,
+       for example https://yourname.github.io/gift/og-image.png -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="A Gift of Remembrance">
+  <meta property="og:description" content="A free online session for well-being. A moment to pause, reflect, and reconnect.">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-stage="intro">
+
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- 1. INTRO: white screen, title comes together, subtitle types itself -->
+  <section id="intro" class="stage stage-center">
+    <h1 class="title" aria-label="A Gift of Remembrance">
+      <span class="t-left" aria-hidden="true">A Gift of</span>
+      <span class="t-right" aria-hidden="true">Remembrance</span>
+    </h1>
+    <span class="hairline" aria-hidden="true"></span>
+    <p class="subtitle" id="subtitle" aria-label="A free online session for well-being. A moment to pause, reflect, and reconnect.">
+      <span id="typed" aria-hidden="true"></span><span class="caret" aria-hidden="true"></span>
+    </p>
+    <button type="button" class="skip" id="skip">Skip intro</button>
+  </section>
+
+  <!-- 2. WELCOME POP-UP: three small things only -->
+  <section id="welcome" class="stage stage-center" hidden>
+    <form class="panel" id="welcome-form" novalidate aria-labelledby="welcome-title">
+      <p class="eyebrow">A Gift of Remembrance</p>
+      <h2 id="welcome-title">Welcome. Let's begin with you.</h2>
+
+      <div class="field">
+        <label for="name">What would you like to be called?</label>
+        <input id="name" name="name" type="text" maxlength="30" autocomplete="given-name" placeholder="Your name of love" required>
+      </div>
+
+      <div class="field">
+        <label for="month">Your birthday</label>
+        <div class="row2">
+          <select id="month" name="month" required aria-label="Birth month">
+            <option value="" disabled selected>Month</option>
+          </select>
+          <select id="day" name="day" required aria-label="Birth day">
+            <option value="" disabled selected>Day</option>
+          </select>
+        </div>
+        <p class="hint">Day and month together show your exact sign. This stays on your screen only.</p>
+      </div>
+
+      <div class="field">
+        <label for="color">The colour that feels right today</label>
+        <div class="color-row">
+          <div class="picker">
+            <span class="picker-ring"><input id="color" name="color" type="color" value="#a78bfa" aria-label="Choose any colour you like"></span>
+            <span class="picker-tag">Any colour</span>
+          </div>
+          <div class="swatches" id="swatches" role="group" aria-label="Suggested colours"></div>
+        </div>
+        <p class="hint">Pick one of these, or tap the colour box to choose any colour in the world.</p>
+      </div>
+
+      <p class="form-error" id="welcome-error" role="alert" hidden></p>
+      <button type="submit" class="btn">Enter</button>
+    </form>
+  </section>
+
+  <!-- 3. LANDING PAGE -->
+  <div id="landing" class="stage" hidden>
+    <main class="wrap">
+      <header class="hero">
+        <p class="eyebrow">Your personal space</p>
+        <h2 id="greeting" class="greeting" tabindex="-1">Welcome.</h2>
+        <p class="lede">We are honoured to welcome you into this moment of remembrance. This is a free online session for well-being, reflection and a deeper awareness of yourself.</p>
+        <p class="lede soft">There is nothing you need to prove here. No feeling you need to hide. Simply arrive as you are, Love Being.</p>
+      </header>
+
+      <section class="levels" aria-labelledby="levels-title">
+        <h3 id="levels-title" class="section-title">Where would you like to begin?</h3>
+        <div class="level-grid">
+          <button type="button" class="level" data-level="beginner">
+            <span class="level-name">Beginner</span>
+            <span class="level-line">Begin with awareness.</span>
+            <span class="level-status" data-status>About 5 to 7 minutes</span>
+          </button>
+          <button type="button" class="level is-soon" disabled aria-disabled="true">
+            <span class="level-name">Intermediate</span>
+            <span class="level-line">A deeper journey of discovery.</span>
+            <span class="level-status">Being created</span>
+          </button>
+          <button type="button" class="level is-soon" disabled aria-disabled="true">
+            <span class="level-name">Advanced</span>
+            <span class="level-line">Explore further within.</span>
+            <span class="level-status">Being created</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Scrolling here after trying a level reveals the surprise notice -->
+      <section class="feedback" id="feedback" aria-labelledby="feedback-title">
+        <h3 id="feedback-title" class="section-title">Tell us how this felt</h3>
+        <p class="lede">Your words help this gift reach the people who need it.</p>
+        <a class="btn btn-ghost" id="feedback-link" href="#" target="_blank" rel="noopener">Share your feedback</a>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-grid">
+          <button type="button" class="circle-card" data-card="community" aria-label="Pure Love Network of States">
+            <span class="circle-frame"><img src="assets/PureLoveCom.jpeg" alt="" width="132" height="132"></span>
+            <span class="circle-text">Pure Love Network of States</span>
+          </button>
+          <div class="pair">
+            <button type="button" class="tile" data-card="starseed">
+              <span class="tile-art" aria-hidden="true"><img src="assets/star-seed.png" alt="" loading="lazy"></span>
+              <span class="tile-name">Starseed</span>
+              <span class="tile-line">A star and a seed.</span>
+            </button>
+            <button type="button" class="tile tile-alt" data-card="worldWithin">
+              <span class="tile-art" aria-hidden="true"><img src="assets/worldwithin.png" alt="" loading="lazy"></span>
+              <span class="tile-name">World Within</span>
+              <span class="tile-line">Look inward.</span>
+            </button>
+          </div>
+        </div>
+
+        <section class="share" aria-labelledby="share-title">
+          <h3 id="share-title" class="section-title">Pass the gift on</h3>
+          <p class="lede">If this felt good, share it with someone who could use a moment of remembrance.</p>
+          <div class="share-row" id="share-row"></div>
+          <p class="muted" id="share-status" role="status"></p>
+        </section>
+
+        <section class="about" aria-labelledby="about-title">
+          <h3 id="about-title" class="section-title">About A Gift of Remembrance</h3>
+          <p>A space to pause. A space to listen. A space to remember. Not another place to become someone else, but a moment to meet yourself with greater presence.</p>
+
+          <h4 class="about-sub">How our feelings touch our health</h4>
+          <ul class="about-list">
+            <li>Putting a feeling into words has been shown in brain-scan studies to quiet the amygdala, the part of the brain that sounds the alarm. This is why the session begins by asking you to name what you feel.</li>
+            <li>Long stretches of stress are linked in research with weaker immune responses. How we feel and how our body copes are connected.</li>
+            <li>People who tend to be optimistic have been found to have a lower risk of heart problems and early death. This is an association, not a promise.</li>
+            <li>Positive feelings are thought to widen what we notice and what we can do. Over time that builds lasting strengths such as friendships and resilience.</li>
+            <li>None of this means painful feelings are a failure. They are part of being alive. Awareness helps us decide how much room to give them.</li>
+          </ul>
+          <details class="refs">
+            <summary>Where this comes from</summary>
+            <ul>
+              <li>Lieberman et al. (2007). Putting feelings into words. Psychological Science.</li>
+              <li>Segerstrom and Miller (2004). Psychological stress and the human immune system: a meta-analytic study of 30 years of inquiry. Psychological Bulletin.</li>
+              <li>Rozanski et al. (2019). Association of optimism with cardiovascular events and all-cause mortality: a systematic review and meta-analysis. JAMA Network Open.</li>
+              <li>Fredrickson (2001). The role of positive emotions in positive psychology: the broaden-and-build theory. American Psychologist.</li>
+            </ul>
+          </details>
+          <p class="muted">This is a free personal reflection, not therapy or medical advice. If you are struggling, you deserve support from a person. <a id="support-link" href="https://findahelpline.com" target="_blank" rel="noopener">Find a helpline</a>.</p>
+        </section>
+      </footer>
+    </main>
+  </div>
+
+  <!-- JOURNEY POP-UP: one box, the content keeps changing -->
+  <dialog id="journey" class="modal" aria-labelledby="journey-title">
+    <div class="modal-bar"><span id="journey-bar" class="bar-fill"></span></div>
+    <button type="button" class="close" id="journey-close" aria-label="Close this session">&times;</button>
+    <div id="journey-body" class="journey-body"></div>
+    <div class="journey-foot">
+      <p class="support-line" id="journey-support" hidden></p>
+      <p class="remember" id="journey-remember" hidden></p>
+      <p class="gentle-note" id="journey-note" hidden></p>
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" id="journey-back">Back</button>
+        <button type="button" class="btn" id="journey-next">Next</button>
+      </div>
+      <a class="need-support" href="https://findahelpline.com" target="_blank" rel="noopener">Need support?</a>
+    </div>
+  </dialog>
+
+  <!-- INFO POP-UP: Starseed, World Within, Pure Love Network of States -->
+  <dialog id="info" class="modal modal-small" aria-labelledby="info-title">
+    <button type="button" class="close" id="info-close" aria-label="Close">&times;</button>
+    <div class="journey-body">
+      <h2 id="info-title" class="step-title" tabindex="-1"></h2>
+      <div id="info-text"></div>
+    </div>
+    <div class="journey-foot">
+      <div class="actions">
+        <a class="btn" id="info-link" href="#" target="_blank" rel="noopener">Enter</a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- SURPRISE NOTICE: only appears for people who tried a level -->
+  <dialog id="notice" class="modal" aria-labelledby="notice-title">
+    <button type="button" class="close" id="notice-close" aria-label="Close">&times;</button>
+    <div class="journey-body" id="notice-body"></div>
+    <div class="journey-foot">
+      <div class="actions"><button type="button" class="btn" id="notice-done">Thank you</button></div>
+    </div>
+  </dialog>
+
+  <script src="js/links.js" defer></script>
+  <script src="js/months.js" defer></script>
+  <script src="js/vibrations.js" defer></script>
+  <script src="js/beginner.js" defer></script>
+  <script src="js/starseed.js" defer></script>
+  <script src="js/worldwithin.js" defer></script>
+  <script src="js/community.js" defer></script>
+  <script src="js/session.js" defer></script>
+  <script src="js/particles.js" defer></script>
+  <script src="js/intro.js" defer></script>
+  <script src="js/journey.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
